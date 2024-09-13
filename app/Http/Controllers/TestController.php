@@ -31,10 +31,21 @@ class TestController extends Controller
     // $result = DB::table('products')->max('price');
 
     // Find-Out Min Price
-    $result = DB::table('products')->min('price');
+    // $result = DB::table('products')->min('price');
 
     // Find-out average Price
-    $result = DB::table('products')->avg('price');
+    // $result = DB::table('products')->avg('price');
+
+    // Find-Out Sum
+    // $result = DB::table('products')->sum('price');
+
+    // Select Specific Columns from row
+    // $result = DB::table('products')->select('title', 'price')->get();
+
+    // Select Unique
+    $result = DB::table('products')->select('title')->distinct()->get();
+
+
 
        return $result;
     }
