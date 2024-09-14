@@ -47,11 +47,43 @@ class TestController extends Controller
 
 
     // Inner Join
-    $result = DB::table('products')
-    ->join('categories','products.category_id','=','categories.id')
-    ->join('brands', 'products.brand_id','=', 'brands.id')
-    ->get();
+    // $result = DB::table('products')
+    // ->join('categories','products.category_id','=','categories.id')
+    // ->join('brands', 'products.brand_id','=', 'brands.id')
+    // ->get();
 
+
+    
+    // left Join
+    //   $result = DB::table('products')
+    //   ->leftJoin('categories', 'products.category_id', '=','categories.id')
+    //   ->leftJoin('brands', 'products.brand_id', '=', 'brands.id')
+    //  ->get();
+
+    // right Join
+    // $result = DB::table('products')
+    //   ->rightJoin('categories', 'products.category_id', '=','categories.id')
+    //   ->rightJoin('brands', 'products.brand_id', '=', 'brands.id')
+    //  ->get();
+
+
+    // cross join
+
+    // $result = DB::table('products')->crossJoin('brands')->get();
+
+    // Simple Pagination
+    // $result = DB::table(table: 'products')->simplePaginate(3);
+
+    // Custom Pagination
+      // $perPage = 5;
+      // $columns=["*"];
+      // $pageName="items";
+
+    $result = DB::table('products')->paginate(
+        $perPage=5,
+        $columns=["*"],
+        $pageName="items"
+    );
 
 
        return $result;
