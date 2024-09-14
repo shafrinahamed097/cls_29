@@ -43,7 +43,14 @@ class TestController extends Controller
     // $result = DB::table('products')->select('title', 'price')->get();
 
     // Select Unique
-    $result = DB::table('products')->select('title')->distinct()->get();
+    // $result = DB::table('products')->select('title')->distinct()->get();
+
+
+    // Inner Join
+    $result = DB::table('products')
+    ->join('categories','products.category_id','=','categories.id')
+    ->join('brands', 'products.brand_id','=', 'brands.id')
+    ->get();
 
 
 
