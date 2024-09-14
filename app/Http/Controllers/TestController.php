@@ -79,11 +79,19 @@ class TestController extends Controller
       // $columns=["*"];
       // $pageName="items";
 
-    $result = DB::table('products')->paginate(
-        $perPage=5,
-        $columns=["*"],
-        $pageName="items"
-    );
+    // $result = DB::table('products')->paginate(
+    //     $perPage=5,
+    //     $columns=["*"],
+    //     $pageName="items"
+    // );
+
+
+    // Pagination By Using skip & take methods -> This is very poor strategy
+    $result = DB::table('products')->skip(2)->take(1)->get();
+
+
+    // Latest & Oldest
+    
 
 
        return $result;
